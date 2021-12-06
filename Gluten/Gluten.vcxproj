@@ -161,11 +161,16 @@
     <ClInclude Include="src\Gluten\Events\KeyEvent.h" />
     <ClInclude Include="src\Gluten\Events\MouseEvent.h" />
     <ClInclude Include="src\Gluten\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Gluten\Input.h" />
+    <ClInclude Include="src\Gluten\KeyCodes.h" />
     <ClInclude Include="src\Gluten\Layer.h" />
     <ClInclude Include="src\Gluten\LayerStack.h" />
     <ClInclude Include="src\Gluten\Log.h" />
+    <ClInclude Include="src\Gluten\MouseCodes.h" />
     <ClInclude Include="src\Gluten\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRendererLoader.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\glutpch.h" />
   </ItemGroup>
@@ -176,6 +181,7 @@
     <ClCompile Include="src\Gluten\LayerStack.cpp" />
     <ClCompile Include="src\Gluten\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\glutpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

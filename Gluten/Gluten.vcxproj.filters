@@ -46,6 +46,9 @@
     <ClInclude Include="src\Gluten\ImGui\ImGuiLayer.h">
       <Filter>Gluten\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Gluten\Input.h">
+      <Filter>Gluten</Filter>
+    </ClInclude>
     <ClInclude Include="src\Gluten\Layer.h">
       <Filter>Gluten</Filter>
     </ClInclude>
@@ -61,10 +64,18 @@
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRendererLoader.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\glutpch.h" />
+    <ClInclude Include="src\Gluten\KeyCodes.h" />
+    <ClInclude Include="src\Gluten\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gluten\Application.cpp">
@@ -84,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

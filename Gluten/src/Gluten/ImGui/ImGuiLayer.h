@@ -14,6 +14,6 @@ namespace Gluten {
 		void OnUpdate();
 		void OnEvent(Event& event);
 	private:
-		float m_Time;
+		float m_Time = 0.0f;
 	};
 }

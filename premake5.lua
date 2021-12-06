@@ -1,5 +1,6 @@
 workspace "Gluten"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -16,9 +17,12 @@ IncludeDir["Glad"] = "Gluten/vendor/Glad/include"
 IncludeDir["ImGui"] = "Gluten/vendor/imgui"
 
 
-include "Gluten/vendor/GLFW"
-include "Gluten/vendor/Glad"
-include "Gluten/vendor/imgui"
+group "Dependancies" 
+	include "Gluten/vendor/GLFW"
+	include "Gluten/vendor/Glad"
+	include "Gluten/vendor/imgui"
+group ""
+
 
 
 project "Gluten"

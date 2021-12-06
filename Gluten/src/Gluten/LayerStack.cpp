@@ -1,6 +1,7 @@
 #include "glutpch.h"
 #include "LayerStack.h"
 
+
 namespace Gluten {
 
 	LayerStack::LayerStack()

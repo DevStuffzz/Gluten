@@ -8,6 +8,13 @@
 #include "Gluten/Log.h"
 
 /*
+	Input
+*/
+#include "Gluten/Input.h"
+#include "Gluten/KeyCodes.h"
+#include "Gluten/MouseCodes.h"
+
+/*
 	Entry Point
 */
 #include "Gluten/EntryPoint.h"
@@ -15,5 +22,5 @@
 /*
 	Layers
 */
-
-#include "Gluten/ImGui/ImGuiLayer.h";
+#include "Gluten/Layer.h"
+#include "Gluten/ImGui/ImGuiLayer.h"
