@@ -368,6 +368,10 @@
     <ClInclude Include="vendor\glm\glm\simd\vector_relational.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Gluten\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Gluten\Renderer\Shader.h" />
+    <ClInclude Include="src\Gluten\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Gluten\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gluten\Application.cpp">
@@ -397,6 +401,10 @@
     <ClCompile Include="src\glutpch.cpp" />
     <ClCompile Include="vendor\glm\glm\detail\glm.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Gluten\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Gluten\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Gluten\Renderer\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vendor\glm\glm\detail\func_common.inl" />
