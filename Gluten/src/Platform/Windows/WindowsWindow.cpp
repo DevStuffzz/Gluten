@@ -5,7 +5,8 @@
 #include "Gluten/Events/MouseEvent.h"
 #include "Gluten/Events/KeyEvent.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h"
+
 
 namespace Gluten {
 	static bool s_GLFWInitialized = false;
@@ -38,6 +39,7 @@ namespace Gluten {
 
 		GLUT_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
+
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
@@ -48,9 +50,11 @@ namespace Gluten {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		GLUT_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		m_Context = new Renderer::OpenGLContext(m_Window); // Initialize Graphics Context to be OpenGL Context
+
+		m_Context->Init();
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -152,7 +156,7 @@ namespace Gluten {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

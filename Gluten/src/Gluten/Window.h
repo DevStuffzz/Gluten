@@ -7,6 +7,7 @@
 
 namespace Gluten {
 
+	// Window Properties Structure
 	struct WindowProps
 	{
 		std::string Title;

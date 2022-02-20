@@ -5,6 +5,7 @@
 #include "Gluten/Log.h"
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 namespace Gluten {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1
@@ -13,6 +14,7 @@ namespace Gluten {
 
 	Application::Application()
 	{
+		glm::vec3 lmao;
 		GLUT_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
 

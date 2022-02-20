@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Gluten/Window.h"
+#include "Gluten/Renderer/GraphicsContext.h";
 
 #include <GLFW/glfw3.h>
 
 namespace Gluten {
 
+	// Display for the Windows OS
 	class WindowsWindow : public Window
 	{
 	public:
@@ -28,6 +30,7 @@ namespace Gluten {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		Renderer::GraphicsContext* m_Context;
 
 		struct WindowData
 		{

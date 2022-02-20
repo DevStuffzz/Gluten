@@ -7,3 +7,6 @@
 [submodule "Gluten/vendor/imgui"]
 	path = Gluten/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Gluten/vendor/glm"]
+	path = Gluten/vendor/glm
+	url = https://github.com/g-truc/glm

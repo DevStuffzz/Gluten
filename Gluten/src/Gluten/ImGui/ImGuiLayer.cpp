@@ -29,6 +29,7 @@ namespace Gluten {
 		ImGui::StyleColorsDark();
 
 		ImGuiIO& io = ImGui::GetIO();
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
@@ -75,12 +76,12 @@ namespace Gluten {
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui::NewFrame();
 
-		ImGui::Begin("Test");
-		ImGui::Text("Hello World");
+		ImGui::Begin("Debug");
+		ImGui::Text("Gluten Debugger:");
+		ImGui::Text(" Version: 2023.1");
+		ImGui::Text(" Renderer: OpenGL3");
+		ImGui::Text(" DeltaTime %f", io.DeltaTime);
 		ImGui::End();
-
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
