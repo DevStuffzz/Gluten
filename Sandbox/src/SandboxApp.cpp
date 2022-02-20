@@ -9,7 +9,7 @@ public:
 
 	void OnUpdate() override {
 
-		GLUT_CORE_INFO("ExampleLayer::Update");
+		//GLUT_CORE_INFO("ExampleLayer::Update");
 
 		if (Gluten::Input::IsKeyPressed(KEY_TAB)) {
 			GLUT_INFO("Tab was pressed");

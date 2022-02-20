@@ -49,6 +49,9 @@
     <ClInclude Include="src\Gluten\Input.h">
       <Filter>Gluten</Filter>
     </ClInclude>
+    <ClInclude Include="src\Gluten\KeyCodes.h">
+      <Filter>Gluten</Filter>
+    </ClInclude>
     <ClInclude Include="src\Gluten\Layer.h">
       <Filter>Gluten</Filter>
     </ClInclude>
@@ -56,6 +59,9 @@
       <Filter>Gluten</Filter>
     </ClInclude>
     <ClInclude Include="src\Gluten\Log.h">
+      <Filter>Gluten</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gluten\MouseCodes.h">
       <Filter>Gluten</Filter>
     </ClInclude>
     <ClInclude Include="src\Gluten\Window.h">
@@ -74,8 +80,6 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\glutpch.h" />
-    <ClInclude Include="src\Gluten\KeyCodes.h" />
-    <ClInclude Include="src\Gluten\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Gluten\Application.cpp">

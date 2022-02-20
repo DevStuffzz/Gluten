@@ -11,6 +11,7 @@
 #endif
 
 
+
 #ifdef GLUT_ENABLE_ASSERTS
 #define GLUT_ASSERT(x, ...) { if(!(x)) { GLUT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define GLUT_CORE_ASSERT(x, ...) { if(!(x)) { GLUT_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -21,4 +22,4 @@
 
 #define BIT(x) (1 << x)
 
-#define BIT(x) (1 << x)
+#define GLUT_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1) 
