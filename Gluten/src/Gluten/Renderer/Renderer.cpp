@@ -2,5 +2,5 @@
 #include "Renderer.h"
 
 namespace Gluten::Renderer {
-	RendererAPI Renderer::s_RendererAPI = RendererAPI::OpenGL;
+	RendererAPI GlutenRenderer::s_RendererAPI = RendererAPI::OpenGL;
 }

@@ -10,6 +10,7 @@
 
 #include "Gluten/Renderer/Shader.h";
 #include "Gluten/Renderer/Buffer.h"
+#include "Gluten/Renderer/VertexArray.h"
 
 namespace Gluten {
 	class GLUT_API Application
@@ -36,11 +37,9 @@ namespace Gluten {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray;
+		std::unique_ptr<Renderer::VertexArray> m_VertexArray;
 
 		std::unique_ptr<Renderer::Shader> m_Shader;
-		std::unique_ptr<Renderer::VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<Renderer::IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 	};

@@ -4,8 +4,12 @@
 #include "Gluten/Input.h"
 #include "Gluten/Log.h"
 
+#include "Gluten/Renderer/SwapChain.h"
+
 #include <glad/glad.h>
 #include <glm/glm.hpp>
+
+using namespace Gluten::Renderer;
 
 namespace Gluten {
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1
@@ -20,38 +24,45 @@ namespace Gluten {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent)));
 		
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray); 
+		m_VertexArray.reset(Renderer::VertexArray::Create());
+		m_VertexArray->Bind();
 
-		float vertices[3 * 3] = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.0f,  0.5f, 0.0f
+		float vertices[3 * 4] = {
+			-0.75f, -0.75f, 0.0f,
+			 0.75f, -0.75f, 0.0f, 
+			 0.75f,  0.75f, 0.0f, 
+			-0.75f,  0.75f, 0.0f
 		};
 
-		m_VertexBuffer.reset(Renderer::VertexBuffer::Create(vertices, sizeof(vertices)));
 		
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, false, 3 * sizeof(float), nullptr);
+		std::shared_ptr<VertexBuffer> vertexBuffer;
+		vertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		Renderer::BufferLayout layout = {
+			{ ShaderDataType::Float3, "a_Position" },
+		};
+		vertexBuffer->SetLayout(layout);
+		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-		uint32_t indices[3] = {
-			0, 1, 2
+		uint32_t indices[6] = {
+			0, 1, 2, 2, 3, 0
 		};
 
-		m_IndexBuffer.reset(Renderer::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
-
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		std::shared_ptr<IndexBuffer> indexBuffer;
+		indexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_VertexArray->AddIndexBuffer(indexBuffer);
 
 		std::string vertexSrc = R"(
 		#version 330 core
 
 		layout(location=0) in vec3 a_Position;
 
-		out vec3 v_Position;
+		uniform vec4 u_Color;
+
+		out vec4 f_Color;
 
 		void main() {
-			v_Position = a_Position;
 			gl_Position = vec4(a_Position, 1.0);
+			f_Color = u_Color;
 		}	
 		)";
 
@@ -60,15 +71,15 @@ namespace Gluten {
 		
 		out vec4 color;
 
-		in vec3 v_Position;
-
+		in vec4 f_Color;
 
 		void main() {
-			color = vec4(v_Position+0.5, 1);
+			float noise = fract(sin(dot(f_Color.xy, vec2(12.9898, 78.233))) * 43758.5435);
+			color = f_Color * noise;
 		}	
 		)";
 
-		m_Shader.reset(new Renderer::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 
 
 ;	}
@@ -106,13 +117,10 @@ namespace Gluten {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.1, 0.1, 0.1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			m_Shader->Bind();
-			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
-			m_Shader->Unbind();
+			SwapChain::BeginFrame(0.1, 0.1, 0.1, 1);
+			m_Shader->UploadUniform4f({ 1.0f, 0.0f, 0.0f, 1.0f }, "u_Color");
+			SwapChain::Submit(m_Shader, m_VertexArray);
+			SwapChain::EndFrame();
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

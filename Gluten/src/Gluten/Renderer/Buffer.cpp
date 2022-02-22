@@ -7,7 +7,7 @@
 namespace Gluten::Renderer {
 	VertexBuffer* VertexBuffer::Create(float* data, uint32_t size)
 	{
-		switch (Renderer::GetAPI()) {
+		switch (GlutenRenderer::GetAPI()) {
 		case RendererAPI::None:
 			GLUT_CORE_ASSERT(false, "RendererAPI::NONE is not supported");
 			return nullptr;
@@ -21,7 +21,7 @@ namespace Gluten::Renderer {
 	}
 	IndexBuffer* IndexBuffer::Create(uint32_t* data, uint32_t size)
 	{
-		switch (Renderer::GetAPI()) {
+		switch (GlutenRenderer::GetAPI()) {
 		case RendererAPI::None:
 			GLUT_CORE_ASSERT(false, "RendererAPI::NONE is not supported");
 			return nullptr;

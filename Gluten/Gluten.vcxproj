@@ -152,9 +152,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gluten\Renderer\SwapChain.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Gluten\Renderer\Buffer.h" />
     <ClInclude Include="src\Gluten\Renderer\Renderer.h" />
     <ClInclude Include="src\Gluten\Renderer\Shader.h" />
+    <ClInclude Include="src\Gluten\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Gluten.h" />
@@ -467,9 +470,12 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gluten\Renderer\SwapChain.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Gluten\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Gluten\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Gluten\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Gluten\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Gluten\Application.cpp" />

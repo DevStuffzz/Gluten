@@ -124,4 +124,30 @@ namespace Gluten::Renderer {
 	{
 		glUseProgram(0);
 	}
+
+	void Shader::UploadUniform1f(float data, const char* name)
+	{
+		Bind();
+		int location = glGetUniformLocation(m_RendererID, name);
+		glUniform1f(location, data);
+	}
+
+	void Shader::UploadUniform2f(glm::vec2 data, const char* name)
+	{
+		Bind();
+		int location = glGetUniformLocation(m_RendererID, name);
+		glUniform2f(location, data.x, data.y);
+	}
+	void Shader::UploadUniform3f(glm::vec3 data, const char* name)
+	{
+		Bind();
+		int location = glGetUniformLocation(m_RendererID, name);
+		glUniform3f(location, data.x, data.y, data.z);
+	}
+	void Shader::UploadUniform4f(glm::vec4 data, const char* name)
+	{
+		Bind();
+		int location = glGetUniformLocation(m_RendererID, name);
+		glUniform4f(location, data.x, data.y, data.z, data.w);
+	}
 }
