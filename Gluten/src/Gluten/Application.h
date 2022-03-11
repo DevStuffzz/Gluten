@@ -29,6 +29,7 @@ namespace Gluten {
 		inline Window& GetWindow() { return *m_Window; }
 
 		inline static Application& Get() { return *s_Instance; }
+		inline static void Quit() { Get().m_Running = false; }
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);

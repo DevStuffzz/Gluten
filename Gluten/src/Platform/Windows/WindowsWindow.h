@@ -30,13 +30,13 @@ namespace Gluten {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
-		Renderer::GraphicsContext* m_Context;
 
 		struct WindowData
 		{
 			std::string Title;
 			unsigned int Width, Height;
 			bool VSync;
+			unsigned int Samples;
 
 			EventCallbackFn EventCallback;
 		};

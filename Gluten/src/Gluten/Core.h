@@ -22,4 +22,6 @@
 
 #define BIT(x) (1 << x)
 
+#define GLUT_CORE_ASSET_MANAGER_LOCATION std::string("C:\\dev\\C++\\Gluten\\Sandbox\\Assets\\")
+
 #define GLUT_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1) 

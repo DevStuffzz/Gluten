@@ -20,6 +20,19 @@
 #include "Gluten/EntryPoint.h"
 
 /*
+	Renderer
+*/
+#include "Gluten/Renderer/Camera.h";
+#include "Gluten/Renderer/SwapChain.h";
+#include "Gluten/Renderer/VertexArray.h";
+#include "Gluten/Renderer/Shader.h";
+#include "Gluten/Renderer/Texture.h";
+#include "Gluten/Primitives.h"
+
+#include "glm/gtc/matrix_transform.hpp"
+
+
+/*
 	Layers
 */
 #include "Gluten/Layer.h"

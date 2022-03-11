@@ -1,7 +1,11 @@
 #include "glutpch.h"
 #include "Shader.h"
 
+
 #include <glad/glad.h>
+
+#include <glm/gtc/type_ptr.hpp>
+
 
 namespace Gluten::Renderer {
 
@@ -149,5 +153,10 @@ namespace Gluten::Renderer {
 		Bind();
 		int location = glGetUniformLocation(m_RendererID, name);
 		glUniform4f(location, data.x, data.y, data.z, data.w);
+	}
+	void Shader::UploadUniformMat4f(glm::mat4 data, const char* name)
+	{
+		GLint location = glGetUniformLocation(m_RendererID, name);
+		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(data));
 	}
 }

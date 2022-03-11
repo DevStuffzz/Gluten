@@ -6,7 +6,7 @@
 
 namespace Gluten::Renderer {
 
-	class VertexArray {
+	class GLUT_API VertexArray {
 	public:
 		virtual ~VertexArray() {}
 

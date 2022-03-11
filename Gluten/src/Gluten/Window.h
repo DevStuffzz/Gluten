@@ -22,7 +22,6 @@ namespace Gluten {
 		}
 	};
 
-	// Interface representing a desktop system based Window
 	class GLUT_API Window
 	{
 	public:

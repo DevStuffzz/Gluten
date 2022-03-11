@@ -1,6 +1,6 @@
 #pragma once
 
-
+#ifdef GLUT_PLATFORM_WINDOWS 
 
 #define KEY_SPACE              32
 #define KEY_APOSTROPHE         39  /* ' */
@@ -137,3 +137,5 @@
 #define MOUSE_BUTTON_LEFT      MOUSE_BUTTON_1
 #define MOUSE_BUTTON_RIGHT     MOUSE_BUTTON_2
 #define MOUSE_BUTTON_MIDDLE    MOUSE_BUTTON_3
+
+#endif
