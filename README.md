@@ -40,9 +40,9 @@ to games made using Gluten.
 4. Run the code in the bin folder
 
 # Legal
-You must contain a copy of LICENSE.txt somewhere in your distribution
-Free to use, as long as you mention that the game is made with Gluten
-Will always be free, no matter how much money your game makes
+You must contain a copy of LICENSE.txt somewhere in your distribution.
+Free to use, as long as you mention that the game is made with Gluten.
+Will always be free, no matter how much money your game makes.
 This software is licensed under Apache, and may be modified
 
 # Credits
